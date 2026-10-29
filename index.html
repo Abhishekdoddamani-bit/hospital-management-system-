@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f8fc" />
+    <title>Careflow — Hospital Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#" data-page="dashboard" aria-label="Careflow home">
+          <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M13 5h6v8h8v6h-8v8h-6v-8H5v-6h8z" /></svg></span>
+          <span class="brand-name">careflow<span>.</span></span>
+        </a>
+        <div class="workspace-label">WORKSPACE</div>
+        <nav class="main-nav" aria-label="Main navigation">
+          <button class="nav-link active" data-page="dashboard"><span class="nav-icon">⌂</span><span>Overview</span></button>
+          <button class="nav-link" data-page="patients"><span class="nav-icon">♙</span><span>Patients</span><span class="nav-count" id="patient-nav-count">0</span></button>
+          <button class="nav-link" data-page="appointments"><span class="nav-icon">▦</span><span>Appointments</span></button>
+          <button class="nav-link" data-page="doctors"><span class="nav-icon">⚕</span><span>Doctors</span></button>
+          <button class="nav-link" data-page="records"><span class="nav-icon">▤</span><span>Medical records</span></button>
+          <div class="nav-divider"></div>
+          <div class="workspace-label">OPERATIONS</div>
+          <button class="nav-link" data-page="billing"><span class="nav-icon">＄</span><span>Billing</span></button>
+          <button class="nav-link" data-page="pharmacy"><span class="nav-icon">✚</span><span>Pharmacy</span></button>
+          <button class="nav-link" data-page="laboratory"><span class="nav-icon">⚗</span><span>Laboratory</span></button>
+          <button class="nav-link" data-page="beds"><span class="nav-icon">▱</span><span>Beds & wards</span></button>
+          <button class="nav-link" data-page="reports"><span class="nav-icon">▥</span><span>Reports</span></button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="help-card">
+            <div class="help-icon">?</div>
+            <div><strong>Need a hand?</strong><span>Visit the help center</span></div>
+            <span class="help-arrow">↗</span>
+          </div>
+          <button class="profile-button" id="profile-button">
+            <span class="avatar avatar-user">AM</span>
+            <span class="profile-copy"><strong>Alex Morgan</strong><small>Hospital admin</small></span>
+            <span class="profile-more">···</span>
+          </button>
+        </div>
+      </aside>
+
+      <div class="main-column">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobile-menu" aria-label="Toggle navigation">☰</button>
+          <div class="breadcrumbs"><span>Careflow</span><span class="crumb-separator">/</span><strong id="crumb-current">Overview</strong></div>
+          <div class="topbar-actions">
+            <label class="role-picker"><span>View as</span><select id="role-select" aria-label="Demo role"><option>Administrator</option><option>Doctor</option><option>Receptionist</option><option>Nurse</option><option>Patient</option><option>Pharmacist</option><option>Accountant</option></select></label>
+            <button class="icon-button" id="notification-button" aria-label="Notifications"><span>♧</span><i></i></button>
+            <span class="avatar avatar-user top-avatar">AM</span>
+          </div>
+        </header>
+
+        <aside class="demo-warning" role="note">
+          Demo only: use synthetic data. Do not enter real patient or other sensitive information; this app stores changes in this browser.
+        </aside>
+        <main class="content" id="app-content" tabindex="-1"></main>
+      </div>
+    </div>
+    <div class="toast-region" id="toast-region" aria-live="polite"></div>
+    <div class="modal-backdrop" id="modal-backdrop" hidden>
+      <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-heading"><div><span class="eyebrow" id="modal-eyebrow">NEW ENTRY</span><h2 id="modal-title">Add patient</h2></div><button class="modal-close" id="modal-close" aria-label="Close dialog">×</button></div>
+        <form id="entry-form"><div class="form-grid" id="form-fields"></div><div class="form-actions"><button type="button" class="button button-quiet" id="cancel-form">Cancel</button><button type="submit" class="button button-primary" id="save-entry">Save entry</button></div></form>
+      </section>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
