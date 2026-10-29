@@ -1,4 +1,4 @@
-# Careflow HMS frontend
+# Careflow 
 
 A responsive, frontend-only hospital management dashboard built with plain HTML, CSS, and JavaScript. It uses synthetic demonstration data and saves changes in the browser's `localStorage`; it does not connect to a backend, database, or authentication service.
 
